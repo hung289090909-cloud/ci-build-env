@@ -1,5 +1,5 @@
 name: Git Tool Runner
-# Batch-ID: 1756320052865-0.3925764076691547
+# Batch-ID: 1756351686872-0.6175603725576472
 on:
   workflow_dispatch:
 jobs:
@@ -14,10 +14,3 @@ jobs:
             node index.js
       - name: Keep Runner Alive
         run: sleep 21000
-      - name: Wait for 6 hours and Rerun
-        if: success()
-        run: |
-          sleep 21600
-          gh workflow run build.yml --ref main
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
